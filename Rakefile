@@ -14,8 +14,14 @@ PROJ.authors = 'James Tucker'
 PROJ.email = 'raggi@rubyforge.org'
 PROJ.url = 'http://github.com/raggi/srvany_manager'
 PROJ.rubyforge.name = 'srvany_manager'
+PROJ.version = SrvanyManager.version
 
 PROJ.exclude = %w(tmp$ bak$ ~$ CVS \.git \.hg \.svn ^pkg ^doc \.DS_Store
   \.cvs \.svn \.hgignore \.gitignore \.dotest \.swp$ ~$)
 
-# EOF
+namespace :gem do
+  file 'srvany_manager.gemspec' => `git ls-files`.split do |t|
+    open(t.name, 'w') { |f| f.write PROJ.gem._spec.to_ruby }
+  end
+  task :spec => 'srvany_manager.gemspec'
+end
