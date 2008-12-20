@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/raggi/srvany_manager}
   s.rdoc_options = ["--main", "README.txt"]
   s.require_paths = ["lib"]
-  s.rubyforge_project = %q{srvany_manager}
+  s.rubyforge_project = %q{raggi}
   s.rubygems_version = %q{1.3.1}
   s.summary = %q{A quick and simple manager for running programs as services on win32}
 
