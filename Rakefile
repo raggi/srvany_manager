@@ -13,7 +13,7 @@ PROJ.name = 'srvany_manager'
 PROJ.authors = 'James Tucker'
 PROJ.email = 'raggi@rubyforge.org'
 PROJ.url = 'http://github.com/raggi/srvany_manager'
-PROJ.rubyforge.name = 'srvany_manager'
+PROJ.rubyforge.name = 'libraggi'
 PROJ.version = SrvanyManager.version
 
 PROJ.exclude = %w(tmp$ bak$ ~$ CVS \.git \.hg \.svn ^pkg ^doc \.DS_Store
