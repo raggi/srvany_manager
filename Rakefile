@@ -15,7 +15,7 @@ PROJ.email = 'raggi@rubyforge.org'
 PROJ.url = 'http://github.com/raggi/srvany_manager'
 PROJ.rubyforge.name = 'raggi'
 PROJ.version = SrvanyManager.version
-PROJ.dependencies = %(win32-service) # TODO where does win32/registry come from?
+PROJ.gem.dependencies = %(win32-service) # TODO where does win32/registry come from?
 
 PROJ.exclude = %w(tmp$ bak$ ~$ CVS \.git \.hg \.svn ^pkg ^doc \.DS_Store
   \.cvs \.svn \.hgignore \.gitignore \.dotest \.swp$ ~$)
