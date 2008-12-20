@@ -1,0 +1,21 @@
+# Look in the tasks/setup.rb file for the various options that can be
+# configured in this Rakefile. The .rake files in the tasks directory
+# are where the options are used.
+
+load 'tasks/setup.rb'
+
+ensure_in_path 'lib'
+require 'srvany_manager'
+
+task :default => 'spec:run'
+
+PROJ.name = 'srvany_manager'
+PROJ.authors = 'James Tucker'
+PROJ.email = 'raggi@rubyforge.org'
+PROJ.url = 'http://github.com/raggi/srvany_manager'
+PROJ.rubyforge.name = 'srvany_manager'
+
+PROJ.exclude = %w(tmp$ bak$ ~$ CVS \.git \.hg \.svn ^pkg ^doc \.DS_Store
+  \.cvs \.svn \.hgignore \.gitignore \.dotest \.swp$ ~$)
+
+# EOF
