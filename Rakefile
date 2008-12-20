@@ -21,7 +21,7 @@ PROJ.exclude = %w(tmp$ bak$ ~$ CVS \.git \.hg \.svn ^pkg ^doc \.DS_Store
   \.cvs \.svn \.hgignore \.gitignore \.dotest \.swp$ ~$)
 
 namespace :gem do
-  file 'srvany_manager.gemspec' => `git ls-files`.split do |t|
+  file 'srvany_manager.gemspec' => (`git ls-files`.split - 'srvany_manager.gemspec') do |t|
     open(t.name, 'w') { |f| f.write PROJ.gem._spec.to_ruby }
   end
   task :spec => 'srvany_manager.gemspec'
