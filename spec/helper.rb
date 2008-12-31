@@ -7,7 +7,7 @@ $TESTING=true
 $:.push File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib'))
 $:.uniq!
 
-%w[rubygems facon bacon].each { |r| require r }
+%w[rubygems bacon].each { |r| require r }
 
 # Bacon doesn't do any automagic, so lets tell it to!
 Bacon.summary_on_exit
