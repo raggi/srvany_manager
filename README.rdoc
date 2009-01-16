@@ -1,4 +1,4 @@
-srvany_manager
+= srvany_manager
     by James Tucker
     http://ra66i.org
     http://github.com/raggi/srvany_manager
