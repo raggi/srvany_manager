@@ -1,14 +1,14 @@
 History.txt
 Manifest.txt
-README.txt
+README.rdoc
 Rakefile
 lib/srvany_manager.rb
 spec/.bacon
 spec/helper.rb
 spec/runner
 spec/spec_srvany_manager.rb
-tasks/ann.rake
 tasks/autospec.rake
+tasks/bacon.rake
 tasks/bones.rake
 tasks/gem.rake
 tasks/git.rake
