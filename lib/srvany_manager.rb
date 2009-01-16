@@ -1,6 +1,6 @@
 class SrvanyManager
 
-  Version = VERSION = '0.1.1'
+  Version = VERSION = '0.1.2'
   def self.version
     Version
   end
