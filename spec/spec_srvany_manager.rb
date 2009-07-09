@@ -17,12 +17,12 @@ module Win32
       attr_accessor :services, :started, :stopped
     end
 
-    def self.create(name, *args)
-      @services << [name, *args]
+    def self.create(args)
+      @services << args
     end
 
     def self.delete(name)
-      @services.delete_if { |svc| svc.first == name }
+      @services.delete_if { |svc| svc[:display_name] == name }
     end
 
     def self.start(name)
@@ -34,11 +34,11 @@ module Win32
     end
 
     def self.services
-      @services.map { |name, args| def name.description; 'descrip'; end; def name.display_name; self; end; name }
+      @services.map { |name| def name.description; 'descrip'; end; def name.display_name; self[:display_name]; end; name }
     end
 
     def self.list
-      @services.map { |name, args| def name.description; 'descrip'; end; def name.display_name; self; end; name }
+      @services.map { |name| def name.description; 'descrip'; end; def name.display_name; self[:display_name]; end; name }
     end
 
     def self.clear!
@@ -59,18 +59,20 @@ describe 'ServiceManager' do
   should 'create services with name prefixes' do
     @sm.create('bar', 'false.exe')
     service_names = Win32::Service.list.select { |obj| obj.display_name }
-    service_names.should.include?(@prefix + 'bar')
+    service_names[0][:display_name].should.eql(@prefix + 'bar')
     service_names.size.should.eql(1)
   end
 
   should 'delete services' do
     @sm.create('bar', 'false.exe')
     service_names = Win32::Service.list.select { |obj| obj.display_name }
-    service_names.should.include?(@prefix + 'bar')
+    service_names[0][:display_name].should.include?(@prefix + 'bar')
     service_names.size.should.eql(1)
     @sm.delete('bar')
     service_names = Win32::Service.list.select { |obj| obj.display_name }
-    service_names.should.not.include?(@prefix + 'bar')
+    service_names.each do |svc|
+      svc[:display_name].should.not.include?(@prefix + 'bar')
+    end
     service_names.size.should.eql(0)
   end
 
