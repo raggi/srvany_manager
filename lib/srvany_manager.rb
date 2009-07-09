@@ -42,7 +42,7 @@ class SrvanyManager
       :description        => description || name,
       :binary_path_name   => @srv_any_path
       )
-      Win32::Service.create(name, nil, options)
+      Win32::Service.create(options)
       # `#{@ins_srv_path} #{name} "#{@srv_any_path}"`
       registry(name) do |reg|
         reg.create('Parameters') do |params|
