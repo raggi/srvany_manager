@@ -39,6 +39,7 @@ class SrvanyManager
       name = @name_key + name.to_s
       options = defaults.merge(
       :display_name       => name,
+      :service_name       => name,
       :description        => description || name,
       :binary_path_name   => @srv_any_path
       )
