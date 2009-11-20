@@ -45,11 +45,16 @@ class SrvanyManager
       )
       Win32::Service.create(options)
       # `#{@ins_srv_path} #{name} "#{@srv_any_path}"`
+
+      command = File.basename(cmd_path)
+      cmd_directory = File.dirname(cmd_path)
+      
       registry(name) do |reg|
         reg.create('Parameters') do |params|
           params.write_i("Start", 3)
           params.write_s("Application", command)
           params.write_s("AppParameters", args)
+          params.write_s("AppDirectory", cmd_directory)
         end
       end
     end
