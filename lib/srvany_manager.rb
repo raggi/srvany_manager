@@ -30,7 +30,7 @@ class SrvanyManager
   # then adjusted with win32-registry.
   # One recommended pattern is to store persisence details about the service
   # as yaml in the optional description field.
-  def create(name, command, args = '', description = nil, options = {})
+  def create(name, cmd_path, args = '', description = nil, options = {})
     defaults = {
       :service_type       => Win32::Service::WIN32_OWN_PROCESS,
       :start_type         => Win32::Service::DEMAND_START,
